@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>注册界面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url('public/注册界面图片.png');
+            background-size: cover;
+            background-position: center;
+            height:100%;
+            position: relative;  
+        }
+
+        .frame1 {
+            font-family: '宋体', Arial, sans-serif;
+            text-align: center;
+            top:250px;
+            left:455px;
+            position: absolute;
+            transform: scale(1.2);  /*将整个内容都放大1.2倍*/
+            background-color: rgba(134, 222, 178, 0.8); /* 边框背景，50% 的透明度 */  
+            padding: 20px; /* 内边距 */
+            border-radius: 10px; /* 边框圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="frame1">
+        <div>
+            <h2>宠物绿皮书注册</h2>
+            你设置的账号是：
+            <input type="text" id="username"/>
+        </div>
+        <div>
+            你设置的密码是：
+            <input type="text" id="password"/>
+        </div>
+        <button onclick="toreturn()">确认设置</button>
+    </div>
+
+    <script>
+        function toreturn() {
+            alert("账号密码保存成功，请记住它们")
+            var username1 = document.getElementById("username").value;
+            var password1 = document.getElementById("password").value;
+            localStorage.setItem("username",username1);
+            localStorage.setItem("password", password1);
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

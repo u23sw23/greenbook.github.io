@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户定位地图</title>
+    <style>
+        #mapContainer {
+            width: 100%;
+            height: 500px; /* 根据需要调整高度 */
+        }
+    </style>
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=24c6eb12226b576760f065db77dc5d25"></script><!--这里用的key(即安全密钥)-->
+</head>
+<body>
+    <div id="mapContainer"></div>
+    <script>
+var map = new AMap.Map('mapContainer', {
+    zoom: 13, // 初始缩放级别
+    center: [116.397428, 39.90923] // 初始中心点经纬度
+});
+
+// 获取用户定位
+map.plugin('AMap.Geolocation', function() {
+    var geolocation = new AMap.Geolocation({
+        enableHighAccuracy: true, // 是否使用高精度定位，默认:true
+        timeout: 10000,          // 超过10秒后停止定位，默认：5s
+        buttonPosition: 'RB',    // 定位按钮的停靠位置
+        buttonOffset: new AMap.Pixel(10, 20), // 定位按钮距离对应角落的距离
+        zoomToAccuracy: true     // 定位成功后是否自动调整地图视野到定位点
+    });
+
+    map.addControl(geolocation);
+    geolocation.getCurrentPosition(function(status, result) {
+        if (status == 'complete') {
+            onComplete(result); // 定位成功的回调函数
+        } else {
+            onError(result); // 定位失败的回调函数
+        }
+    });
+});
+
+// 定位成功的回调函数
+function onComplete(data) {
+    // data是具体的定位信息
+    var position = data.position;
+    map.setCenter(position);
+}
+
+// 定位失败的回调函数
+function onError(data) {
+    // 定位失败时，data.message 会包含错误信息
+    alert('定位失败: ' + data.message);
+}
+    </script>
+</body>
+</html>
