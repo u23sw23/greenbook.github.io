@@ -3,52 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <title>登录注册界面</title>
-    <style> 
-
-body {
-     background-image: url("public/登录界面图片.png");
-     background-size: cover;
-     background-position: center;
-     background-repeat: no-repeat;
-     min-height: 100vh; /* 确保至少覆盖整个视口高度 */
-}
-
-.text-center{   /*这个前面的点必须打*/
-      text-align: center; /*所有包含 center-text 类的元素中的文本都会居中显示*/
-      background-color: rgba(240, 173, 233, 0.7);
-      width: 60%;
-      position:absolute;
-      top:250px;
-      left:222px;
-      margin: 0 auto; /*元素的上下外边距被设置为0;元素的左右外边距被自动计算，以使得元素在水平方向上居中。*/
-      padding: 20px; /* 内边距 */
-      border-radius: 10px; /* 边框圆角 */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-    </style>
 </head>
-<body>
+<body class="body-type1">
     <div class="text-center">
-            <h2>宠物绿皮书 登录</h2>
+            <h2>登录 宠物绿皮书</h2>
             <div class="input-box">
               <div>
-                <label for="username">用户名:</label>
+                <label for="username">账号:</label>
                 <input type="text" id="username" >
               </div>
               <div>
                 <label for="password">密码:</label>
                 <input type="password" id="password">
               </div>
-            <button onclick="Login()">登录</button>
-            <a href="注册界面.html">点击这里注册/修改密码</a>
+            <button id="button-load" onclick="Login()">登录</button>
+            <div><a href="注册界面.html">点击这里注册/修改密码</a></div>
             </div>
     </div>
-
-  <!--<div id="app"></div>
-  <script src="%PUBLIC_URL%/main.js"></script>-->
 
   <script>
     function Login() {
