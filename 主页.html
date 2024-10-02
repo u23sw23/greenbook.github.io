@@ -4,122 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>主页</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-
-body{
-    background-image:url(public/主页壁纸2.png);
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family:'华文中宋';/*代表着在这个界面中如果没有特殊声明，所有字都用这种字体*/
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
-header {
-    display: flex;
-    justify-content: space-between;/*沿中轴对齐*/
-    align-items: center;
-    padding: 0;
-    background-image:linear-gradient(to right,#5f7cffd8, #5f177e71);
+        
+.file-block {
+    width:70px;
+    height:30px;
+    padding: 10px 20px; /* 添加内边距 */
+    background-color: #eda052; /* 设置背景颜色 */
+    color: white; /* 设置文字颜色 */
+    border-radius: 5px; 
+    cursor: pointer; /* 鼠标在之上时候将鼠标指针设置为点击状态 */
+    font-size: 13px;
 }
 
-.logo {
-    display: flex; 
-    align-items: center; 
-    font-weight: bold;
-}
-
-.logo-icon{
-    height: 50px; /* 根据需要调整图标大小 */
-    width: auto; /* 保持图标比例 */
-    margin-right: 10px; 
-}
-
-.search-bar {
-    position: relative;
-}
-
-#search-input {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.slider {
-    object-fit: cover; /* 保证图片覆盖整个容器 */
-    object-position: 50% 80%; /* 将图片的中心点对齐到容器的中心点 */
-    width: 66%;
-    height:380px;
-    margin-left:15%;
-    margin-top:1%;
-    overflow:hidden;/*如果文本超出了 .container 的宽度，超出的部分将被隐藏*/
-}
-
-.slides {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.slides img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    padding: 20px;
-}
-
-.menu-item {
-    background-image:linear-gradient(to right,#5f7cffd8, #5f177e71);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    background-color: #2bc2837b;
-}
-
-.footer-item {
-    padding: 0 20px;
-    cursor: pointer;
-}
-
-.sidebar {
-    width: 33.333%; /* 屏幕三分之一的宽度 */
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: -33.333%; /* 初始位置在屏幕外 */
-    background: #f9f9f9;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s;
-    z-index: 1000; /* 确保侧边栏在内容上方 */
-}
-
-/* 侧边栏打开时的样式 */
-.sidebar.open {
-    right: 0; /* 移动到屏幕内 */
-}
-
-.text-container, .personal-info, .account-management, .campus-account {
-    text-align: center;
-    margin-bottom: 20px;
-}
     </style>
 </head>
-<body>
+<body class="body-type2">
+<div class="all">
     <header>
         <div class="logo"><img src='public/宠物绿皮书.ico' alt='Lago' class="logo-icon"><h2>宠物绿皮书</h2></div>
         <div class="search-bar">
@@ -138,46 +40,36 @@ footer {
         <nav class="menu">
             <div class="menu-item" data-target="热门推荐.html">热门推荐</div>
             <div class="menu-item" data-target="周边地图.html">周边地图</div>
-            <div class="menu-item" data-target="评价评分.html">评价评分</div>
+            <div class="menu-item" data-target="宠物新闻.html">宠物新闻</div>
             <div class="menu-item" data-target="关于我们.html">关于我们</div>
         </nav>
     </main>
     <footer>
-        <div class="footer-item">首页</div>
-        <div class="footer-item">分类</div>
-        <div class="footer-item"><button id='a1'>我的账号</button></div>
+        <div class="footer-item"><button class='button-change' onclick="window.location.href='社区论坛.html'">社区讨论</button></div>
+        <div class="footer-item"><button class='button-openslide'>我的账号</button></div>
+
         <div id="sidebar" class="sidebar">
-            <button id="close-sidebar"><img src='public/叉号.ico' width=20px height=20px></button>
-            <div>我的账号</div>
-            <button id="b1" onclick='change()'><img src='public/未填充头像.ico' width=80px height=80px></button>
+            <button class="button-closeslide"><img src='public/叉号.ico' width=20px height=20px></button>
+            <div><h2>我的账号</h2></div>
+            <div class="avatar-upload-container">
+                <label for="avatarInput" class="file-block">点击这里选择头像</label>
+                <input type="file" id="avatarInput" accept="image/*" onchange="previewAvatar(this)" style="display: none;">
+                <img src="public/未填充头像.ico" id="avatarPreview" class="avatar-preview">
+            </div>
             <div class="text-container">
-            <p>第一段</p>
-            <p>第二段</p>
-            <p>第三段</p>
-            <div class="personal-info">
-                <p>单位: 阿伯丁数据科学与人工智能学院</p>
-                <p>类型: 本科生</p>
-                <p>手机: 180****96</p>
-                <p>邮箱: 20233802048@m.scnu.edu.cn</p>
-            </div>
-            <div class="account-management">
-                <h4>账号管理</h4>
-                <p>Member Setting</p>
-                <button onclick="logout()">退出登录</button>
-            </div>
-            <div class="campus-account">
-                <p>宠物绿皮书账号</p>
-                <p>账户余额: ￥0.00</p>
+                <p>账号名称：</p>
+                <p>IP属地:广东</p>
+                <p>关注：</p>
+                <p>被关注：</p>
+                <p>获赞与收藏：</p>
                 <p>账号状态: 正常</p>
-                <p>起始日期: 2024-08-30</p>
-                <p>扣费日期: 2024-09-30</p>
-                <button>￥充值</button>
+                <p>注册日期: 2024-10-1</p>
             </div>
         </div>
-        </div>
+    </div>
     </footer>
     <script>
-    // 搜索推荐功能
+    // 搜索推荐功能,还没做好
     document.getElementById('search-input').addEventListener('click', function() {
     const searchIndex = document.getElementById('search-index');
     searchIndex.style.display = 'block';
@@ -197,27 +89,38 @@ function showSlides() {
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}    
     slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 4000); // Change image every 4 seconds
+    setTimeout(showSlides, 4000); // 每四秒转换一次
 }
 
-// 菜单导航功能
+function previewAvatar(input) {    //从用户库里选择图片作为头像
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var preview = document.getElementById('avatarPreview');
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+// 四格菜单导航功能
 document.querySelectorAll('.menu-item').forEach(item => {
     item.addEventListener('click', function() {
         // 根据 data-target 属性跳转到不同的页面或显示不同的内容
         const target = item.getAttribute('data-target');
         console.log('Navigate to:', target);
         window.location.href=target;
-        // 实现页面跳转或内容显示的逻辑
     });
 });
-
-document.getElementById('a1').addEventListener('click', function() {
-    var sidebar = document.getElementById('sidebar');
+//为什么不能使用getElementsByClassName?问题出在当尝试给一个类数组的第一个元素添加事件监听器？
+//因为使用 getElementsByClassName 会获取类名选择器的所有元素，它会返回一个 HTMLCollection，而不是单个元素
+//需要使用 document.querySelector 来获取第一个匹配的元素
+document.querySelector('.button-openslide').addEventListener('click', function() {
+    var sidebar = document.querySelector('.sidebar');
     sidebar.classList.toggle('open');
 });
 
-document.getElementById('close-sidebar').addEventListener('click', function() {
-    var sidebar = document.getElementById('sidebar');
+document.querySelector('.button-closeslide').addEventListener('click', function() {
+    var sidebar = document.querySelector('.sidebar');
     sidebar.classList.remove('open');
 });
 
