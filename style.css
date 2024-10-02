@@ -1,0 +1,353 @@
+body {  /*这里存储着几乎所有界面的css样视*/
+    min-height: 100vh; /* 这里面放所有界面都通用的东西*/
+    font-family: "华文中宋";
+}
+
+.body-type1{
+    background-image: url("public/登录界面图片.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* 确保至少覆盖整个视口高度 */
+}
+
+.body-type2{
+    background-image: url('public/主页壁纸2.png');
+    background-size: cover; /* 背景图像覆盖元素 */
+    background-position: center;
+    margin:0;
+    padding:0;
+    margin-left: 8px;
+    margin-right: 8px;
+    width:100%;
+    height:auto;
+    font-family: '华文中宋';/*代表着在这个界面中如果没有特殊声明，所有字都用这种字体*/
+    font-size: 18px;
+    overflow: hidden;  /*禁用滚动条!*/
+}
+
+.all{
+    transform: scale(1, 0.93); /* 保持宽度不变，高度缩小为原来的 0.9 倍 */
+    transform-origin: top left;
+}
+
+.body-type3{
+    background-image: url('public/注册界面图片.png');
+    background-size: cover;
+    background-position: center;
+    height:100%;
+    position: relative;  
+}
+
+.body-type4{
+    background-image: url('public/社区壁纸.png');
+    background-size: cover;
+    background-position: center;
+    height:100%;
+    position: relative;  
+}
+
+header {
+    display: flex;
+    margin:5px;
+    margin-right: 20px;
+    border-radius: 10px; 
+    justify-content: space-between;/*沿中轴对齐*/
+    align-items: center;
+    padding: 0;
+    background-image:linear-gradient(to right,#5f7cffd8, #5f177e71);
+}
+
+.logo {
+    display: flex; 
+    align-items: center; 
+    font-weight: bold;
+}
+
+.logo-icon{
+    margin-left: 8px;
+    height: 50px; 
+    width: auto; /* 保持图标比例 */
+    margin-right: 10px; 
+    border-radius: 10px;
+}
+
+.return{
+    position:absolute;
+    top:600px;
+    right:10px;
+    width:50px;
+    height:50px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right,#5f7cffd8, #5f177e71);
+}
+
+.space {  /*让上下行之间间隔一段距离*/
+    margin-top: 20px;    /* 与上方元素的间隔 */
+    margin-bottom: 20px; /* 与下方元素的间隔 */
+}
+
+#button-load{  /*登陆界面的登录按钮*/
+    justify-self: center;
+    background-image:linear-gradient(to right,#5f7cffd8, #5f177e71);
+	color:white;
+	width: 100px;
+	height: 30px;
+	border:0;
+	font-size: 16px;
+	box-sizing: content-box;				
+    border-radius: 5px;
+}
+
+#button-register{  /*注册界面的注册按钮*/
+    margin-top: 5px;
+    justify-self: center;
+    background-image:linear-gradient(to right,#4486bcd8, #28c6db71);
+	color:rgb(0, 0, 0);
+	width: 80px;
+	height: 20px;
+	border:0;
+	font-size: 16px;
+	box-sizing: content-box;				
+    border-radius: 2px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #2bc2837b;
+}
+
+.footer-item {
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.button-openslide{
+    background-image:linear-gradient(to right,#1b8d91d8, #7a91eb71);
+    color:rgb(0, 0, 0);
+    width: 120px;
+    height: 45px;
+    border:0;
+    font-size: 16px;			
+    border-radius: 10px;
+} 
+
+.button-change{
+    background-image:linear-gradient(to right,#44bc94d8, #7a91eb71);
+    color:rgb(0, 0, 0);
+    width: 120px;
+    height: 45px;
+    border:0;
+    font-size: 16px;			
+    border-radius: 10px;
+}
+
+/*下面是主页的内容*/
+.search-bar {
+    position: relative;
+}
+
+#search-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.slider {
+    object-fit: cover; /* 保证图片覆盖整个容器 */
+    object-position: 50% 80%; /* 将图片的中心点对齐到容器的中心点 */
+    width: 66%;
+    height:380px;
+    margin-left:15%;
+    margin-top:1%;
+    overflow:hidden;/*如果文本超出了 .container 的宽度，超出的部分将被隐藏*/
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    padding: 20px;
+}
+
+.menu-item {
+    background-image:linear-gradient(to right,#5f7cffd8, #5f177e71);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.sidebar {
+    background: linear-gradient(to right,#ebe38d,#dae53e);
+    width: 33.333%; /* 屏幕三分之一的宽度 */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -33.333%; /* 初始位置在屏幕外 */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s;
+    z-index: 1000; /* 确保侧边栏在内容上方 */
+}
+
+/* 侧边栏打开时的样式 */
+.sidebar.open {
+    right: 0; /* 移动到屏幕内 */
+}
+
+.text-container{
+    text-align: center;
+    margin-bottom: 20px;
+}
+/*主页内容截止*/
+
+.frame1 {
+    text-align: center;
+    top:250px;
+    left:455px;
+    position: absolute;
+    transform: scale(1.2);  /*将整个内容都放大1.2倍*/
+    background-color: rgba(134, 222, 178, 0.8); /* 边框背景80% 的透明度 */  
+    padding: 20px; /* 内边距 */
+    border-radius: 10px; /* 边框圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-center{   /*这个前面的点必须打. ,代表对class的引用*/
+     text-align: center; /*所有包含 center-text 类的元素中的文本都会居中显示*/
+     background-color: rgba(240, 173, 233, 0.7);
+     width: 60%;
+     position:absolute;
+     top:250px;
+     left:222px;
+     margin: 0 auto; /*元素的上下外边距被设置为0;元素的左右外边距被自动计算，以使得元素在水平方向上居中。*/
+     padding: 20px; /* 内边距 */
+     border-radius: 10px; /* 边框圆角 */
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-box{
+    display: grid;
+    grid-template-rows: auto auto auto; /* 定义三行 */
+    row-gap: 6px; /* 行与行之间的间隔 */
+}
+
+.slider-container {
+    width: 100%;
+    height: 100vh; 
+    overflow-y: auto; /* 允许垂直滚动 */
+    overflow-x: hidden; /* 隐藏水平滚动 */
+}
+
+.slider-logo {
+    max-width: 150px; 
+    height: auto;
+}
+
+.slider-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.slide-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#slide-pic{
+    display: flex;
+    justify-content: center;
+}
+
+.attraction-image {
+    width: 300px; 
+    height: auto;
+    margin-right: 20px;
+    border-radius: 6px;
+}
+
+.attraction-info h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+.attraction-info p {
+    margin: 5px 0;
+    padding: 0;
+}
+
+.button-openslide-fake{
+    background-image:linear-gradient(to right,#5a44bcd8, #7a91eb71);
+    color:rgb(0, 0, 0);
+    width: 120px;
+    height: 45px;
+    border:0;
+    font-size: 16px;			
+    border-radius: 10px;
+} 
+
+.stars img {
+    cursor: pointer;
+    width: 50px; 
+}
+
+.comments-container {
+    overflow-y: auto; /* 允许垂直滚动 */
+    height: 300px; 
+    margin-bottom: 20px;
+}
+
+.comments {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+
+#comment-box {
+    margin-left: 5px;
+    width: 90%;
+    height: 100px;
+    resize: none;
+}
+
+button {
+    margin-top: 10px;
+}
+
+/*下面是头像设置区域*/
+.avatar-upload-container {
+    display: flex;
+    margin: 20px;
+}
+
+.avatar-preview {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    border-radius: 20px; /* 头像 */
+    object-fit: cover; /* 裁剪并填充图片 */
+}
+
+#mapContainer {    /*地图部分*/
+    width: 100%;
+    height: 650px; 
+}
+
