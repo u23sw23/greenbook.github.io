@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户定位地图</title>
-    <style>
-        #mapContainer {
-            width: 100%;
-            height: 500px; /* 根据需要调整高度 */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=24c6eb12226b576760f065db77dc5d25"></script><!--这里用的key(即安全密钥)-->
 </head>
 <body>
     <div id="mapContainer"></div>
     <script>
 var map = new AMap.Map('mapContainer', {
-    zoom: 13, // 初始缩放级别
-    center: [116.397428, 39.90923] // 初始中心点经纬度
+    zoom: 20, // 这是初始缩放级别
+    center: [113.030371, 23.14842] // 初始中心点经纬度，方法：高德地图分享特定地点在网站上就能看到经纬度
 });
 
-// 获取用户定位
+/* 下面是自动定位部分，ai写的
 map.plugin('AMap.Geolocation', function() {
     var geolocation = new AMap.Geolocation({
         enableHighAccuracy: true, // 是否使用高精度定位，默认:true
@@ -52,6 +47,8 @@ function onError(data) {
     // 定位失败时，data.message 会包含错误信息
     alert('定位失败: ' + data.message);
 }
+// 获取用户定位 */
     </script>
+     <button class="return" onclick="window.location.href='主页.html'">返回主页</div>
 </body>
 </html>
